@@ -1,0 +1,68 @@
+import 'package:flutter/material.dart';
+
+class PerformancePage extends StatelessWidget {
+  const PerformancePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Your Performance'),
+        backgroundColor: Colors.amber, // Set the AppBar background color to amber
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Colors.black, Colors.grey[900]!],
+          ),
+        ),
+        child: Column(
+          children: <Widget>[
+            // Graphical representation of grades (placeholder)
+            Container(
+              height: 200,
+              margin: const EdgeInsets.all(16.0),
+              color: Colors.white,
+              child: Center(
+                child: Text(
+                  'Graph Placeholder',
+                  style: TextStyle(color: Colors.black),
+                ),
+              ),
+            ),
+            // List of assignments with grades and feedback
+            Expanded(
+              child: ListView.builder(
+                itemCount: 5, // Replace with the actual number of assignments
+                itemBuilder: (context, index) {
+                  return Card(
+                    margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                    child: ListTile(
+                      title: Text('Assignment ${index + 1}'),
+                      subtitle: Text('Grade: A\nFeedback: Well done!'),
+                    ),
+                  );
+                },
+              ),
+            ),
+            // Link to mandatory video tutorials for low scorers
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  // Handle navigation to video tutorials
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.amber, // Set the button background color to amber
+                ),
+                child: const Text('Watch Mandatory Video Tutorials'),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
